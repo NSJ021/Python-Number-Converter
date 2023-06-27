@@ -19,7 +19,7 @@ def bin_to_dec(user_number):
 
 # convert to hex via hex() method
 def dth_basic(h):
-    return hex(h)
+    return hex(h).replace("0x", "")
 
 #Decimal to Hexadecimal function
 def dec_to_hex(user_number):
@@ -41,14 +41,16 @@ hex_conversion_table = {0: '0', 1: '1', 2: '2', 3: '3',
 if __name__ == '__main__':
     #getting user input
     print("Number Coverter\n")
-    print("---------------------------------------------------------- \n")
+    print("------------------------------------------------ \n")
     print("Choose Decimal: for Decimal -> Binary\n")
     print("------------------------------------------------ \n")
     print("Choose Binary: for Binary -> Decimal\n")
     print("------------------------------------------------ \n")
-    print("Choose Hexaecimal: for Decimal -> Hexadecimal\n")
+    print("Choose Hexaecimal1: for Decimal -> Hexadecimal\n")
+    print("------------------------------------------------ \n")    
+    print("Choose Hexaecimal2: for Hexadecimal -> Decimal\n")
     print("------------------------------------------------ \n")
-    user_choice = input("Please choose a number type, either Decimal, Binary, Hexadecimal: \n")
+    user_choice = input("Please choose a number type, either Decimal, Binary, Hexadecimal1, Hexadecimal2: \n")
 
 
 #If User chooses decimal program will covert it into binary
@@ -69,11 +71,18 @@ elif user_choice == "Binary" or user_choice == "binary":
         print(f"Your decimal number is: {bin_to_dec(user_number)}")
         
 
-#If User chooses hexadecimal program will covert it into decimal
-elif user_choice == "Hexadecimal" or user_choice == "hexadecimal":
+#If User chooses hexadecimal1 program will covert Decimal into hexadecimal
+elif user_choice == "Hexadecimal1" or user_choice == "hexadecimal1":
         user_number = int(input("Enter a number to convert to hexadecimal: \n"))
         #print(type(user_number))
-        print("Your decimal number is: " + hex(user_number))
+        print("Your hexadecimal number is: " + hex(user_number))
         print(str(dec_to_hex(user_number)))
+
+#If User chooses hexadecimal2 program will covert Hexadecimal into decimal
+elif user_choice == "Hexadecimal2" or user_choice == "hexadecimal2":
+        user_number = input("Enter a number to convert to Decimal: \n")
+        #print(type(user_number))
+        print("Your decimal number is: " , int(user_number, 16))
+        
 else:
     print("Your choice was not valid")
